@@ -1,0 +1,13 @@
+@mixin d-flex($justify: start, $align: start, $wrap: no-wrap) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+}
+
+@mixin position($name, $top-or-bottom, $left-or-right, $z-index: 1) {
+    position: $name;
+    #{$top-or-bottom}: 0;
+    #{$left-or-right}: 0;
+    z-index: $z-index;
+}

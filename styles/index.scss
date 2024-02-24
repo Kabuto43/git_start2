@@ -1,0 +1,58 @@
+@use 'placeholders';
+@use 'importer' as s;
+@use 'sass:color';
+@use 'sass:string';
+@use 'sass:math';
+
+body {
+    background-color: s.$main__color_1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1em;
+    // border: 1px solid v.$main__color_2;
+    border: {
+        width: 2px;
+        style: solid;
+        color: s.$main__color_2;
+        radius: 10px;
+    }
+
+    .cards-wrapper {
+        @extend %fullsize;
+
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // flex-wrap: wrap;
+        @include s.d-flex(center, center, wrap);
+    }
+}
+
+.block {
+    // position: relative;
+    // top: 10px;
+    // left: 10px;
+    @include s.position(relative, top, left);
+    width: s.div(500px, 200px);
+    height: 200px;
+    background-color: s.$main__color_3;
+
+    &:before {
+        content: "#{s.sum(1,2,3)}";
+        color: s.$main__color_1;
+    }
+    &:after {
+        content: "#{s.sumPro(1,2,3)}";
+        color: s.$main__color_5;
+    }
+}
+
+.built-in-module {
+    @extend %simpleBlock;
+
+    background-color: s.$main__color_4;
+    
+}
